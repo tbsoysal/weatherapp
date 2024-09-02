@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  background: rgb(25, 34, 63);
+  background: linear-gradient(180deg, rgb(25, 34, 63) 0%, rgb(9, 9, 121) 15%, rgb(147, 66, 171) 100%) no-repeat;
+  text-align: center;
+  color: #fff;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+main .currentWeather {
+  margin-top: 4rem;
+}
+main .currentWeather #current-img {
+  max-width: 120px;
+}
+main .currentWeather #current-heat {
+  font-weight: 500;
+  font-size: 3rem;
+}
+main .currentWeather .currentDetails {
+  letter-spacing: 0.49px;
+}
+main .currentWeather .currentDetails .container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.forcast-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgb(157, 82, 172);
+  background: linear-gradient(15deg, rgb(157, 82, 172) 0%, rgb(157, 82, 172) 15%, rgb(62, 45, 143) 100%);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.forcast-section .today {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+.forcast-section .future {
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+.forcast-section .future div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.forcast-section .future div p {
+  font-size: 15px;
+}
+.forcast-section .future div .bigger {
+  font-size: 18px;
+}
+.forcast-section .future img {
+  max-width: 30px;
+}
+
+/*# sourceMappingURL=app.css.map */
