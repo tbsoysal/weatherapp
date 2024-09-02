@@ -27,22 +27,23 @@ main {
   justify-content: space-between;
 }
 main .currentWeather {
-  margin-top: 4rem;
+  margin-top: 1.5rem;
 }
 main .currentWeather #current-img {
   max-width: 120px;
 }
 main .currentWeather #current-heat {
   font-weight: 500;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 main .currentWeather .currentDetails {
-  letter-spacing: 0.49px;
+  margin-bottom: 1rem;
 }
 main .currentWeather .currentDetails .container {
   display: flex;
   justify-content: center;
   gap: 1rem;
+  letter-spacing: 0.49px;
 }
 
 .forcast-section {
@@ -83,7 +84,7 @@ main .currentWeather .currentDetails .container {
   font-size: 18px;
 }
 .forcast-section .future img {
-  max-width: 30px;
+  max-width: 40px;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -28,7 +28,7 @@ main {
   justify-content: space-between;
 
   .currentWeather {
-    margin-top: 4rem;
+    margin-top: 1.5rem;
     
     #current-img {
       max-width: 120px;
@@ -36,16 +36,16 @@ main {
 
     #current-heat {
       font-weight: 500;
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
 
     .currentDetails {
-      letter-spacing: 0.49px;
-
+      margin-bottom: 1rem;
       .container {
         display: flex;
         justify-content: center;
         gap: 1rem;
+        letter-spacing: 0.49px;
       }
     }
   }
@@ -93,7 +93,7 @@ main {
     }
 
     img {
-      max-width: 30px;
+      max-width: 40px;
     }
   }
 }
