@@ -9,6 +9,7 @@ const currMin = document.getElementById('currentMin');
 // Get date elements
 const todayEl = document.getElementById('todaysDay');
 const dateEl = document.getElementById('todaysDate');
+const otherDays = document.querySelectorAll('.otherDays');
 
 // This objects represents the weather images src locations
 const weatherIcons = {
@@ -50,7 +51,7 @@ function convertLocation(lat, lon) {
     .catch((err) => console.log(err));
 }
 
-function ShowDate() {
+function ShowDates() {
   const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const monthNames = [
     "January", "February", "March", "April", "May", "June",
@@ -69,8 +70,16 @@ function ShowDate() {
   //change dom
   todaysDay.innerText = dayName;
   todaysDate.innerText = dateText;
+  
+  otherDays.forEach((day,index) => {
+    let newDayIndex = dayIndex + (index+1);
+    if(newDayIndex >= 7)
+      newDayIndex = 7 - newDayIndex;
+    day.innerText = dayNames[newDayIndex];
+  });
+
 }
 
 ShowLocation();
-ShowDate();
+ShowDates();
 
