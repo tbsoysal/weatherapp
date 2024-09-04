@@ -10,6 +10,7 @@ const currMin = document.getElementById('currentMin');
 const todayEl = document.getElementById('todaysDay');
 const dateEl = document.getElementById('todaysDate');
 const otherDays = document.querySelectorAll('.otherDays');
+const otherDaysHeats = document.querySelectorAll('.bigger');
 
 // This objects represents the weather images src locations
 const weatherIcons = {
@@ -28,6 +29,8 @@ function ShowLocation() {
       const longitude = position.coords.longitude;
       //convert lat lon values to address and display the location on DOM
       convertLocation(latitude, longitude);
+      // get the weather details and display with latitude, longitude
+      getWeather(latitude, longitude);
     },
     function (error) {
         window.alert("Error occurred: " + error);
@@ -80,6 +83,31 @@ function ShowDates() {
 
 }
 
+function getWeather(lat, lon) {
+  fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,is_day&hourly=temperature_2m&daily=temperature_2m_max,temperature_2m_min&timezone=auto`)
+    .then(response => response.json())
+    .then(data => {
+      const currentHeat = Math.round(data.current.temperature_2m);
+      const currentMax = Math.round(data.daily.temperature_2m_max[0]);
+      const currentMin = Math.round(data.daily.temperature_2m_min[0]);
+      const otherMax = [];
+      data.daily.temperature_2m_max.map((temp, index)=> {
+        if(index !== 0 && index < 5)
+          otherMax.push(Math.round(temp));
+      })
+      console.log(data)
+
+     //Display the data in dom
+      currHeat.innerText = currentHeat + "°";
+      currMax.innerText = `Max: ${currentMax}°`;
+      currMin.innerText = `Min: ${currentMin}°`;
+
+      otherDaysHeats.forEach((el,index) => {
+        el.innerText = otherMax[index] + "°";
+      })
+    })
+    .catch(err => console.log(err));
+}
+
 ShowLocation();
 ShowDates();
-
