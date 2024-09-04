@@ -4,7 +4,11 @@ const currImg = document.getElementById('current-img');
 const currHeat = document.getElementById('current-heat');
 // Get the current city element
 const currCity = document.getElementById('currentCity');
-
+const currMax = document.getElementById('currentMax');
+const currMin = document.getElementById('currentMin');
+// Get date elements
+const todayEl = document.getElementById('todaysDay');
+const dateEl = document.getElementById('todaysDate');
 
 // This objects represents the weather images src locations
 const weatherIcons = {
@@ -15,13 +19,12 @@ const weatherIcons = {
   cloud: './assets/cloudy.svg'
 }
 
-function getLocation() {
+function ShowLocation() {
   // Get latitude longitude with builtin geolocation
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition((position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      console.log(latitude, longitude);
       //convert lat lon values to address and display the location on DOM
       convertLocation(latitude, longitude);
     },
@@ -47,5 +50,27 @@ function convertLocation(lat, lon) {
     .catch((err) => console.log(err));
 }
 
-getLocation();
+function ShowDate() {
+  const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  const now = new Date();
+
+  const dayIndex = now.getDay();
+  const monthIndex = now.getMonth(); // Returns 0-11
+  const monthName = monthNames[monthIndex]; // Get the corresponding month name
+  const dayName = dayNames[dayIndex];
+  const dayOfMonth = now.getDate();
+  const dateText = `${monthName}, ${dayOfMonth}`;
+  
+  //change dom
+  todaysDay.innerText = dayName;
+  todaysDate.innerText = dateText;
+}
+
+ShowLocation();
+ShowDate();
 
