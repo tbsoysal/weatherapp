@@ -30,12 +30,12 @@ function getLocation() {
     }
   );
   } else {
-  window.alert("Geolocation is not supported by this browser.");
+    window.alert("Geolocation is not supported by this browser.");
   }
 }
 
 function convertLocation(lat, lon) {
-  const key = "AIzaSyBCVZg_eKpv2qk9T-g8FEYvdnCxcwIkARs";
+  const key = config.MY_API_KEY;
   const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${key}`
   fetch(url)
     .then((response) => response.json())
