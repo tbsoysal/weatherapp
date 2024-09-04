@@ -12,6 +12,7 @@ const dateEl = document.getElementById('todaysDate');
 const otherDays = document.querySelectorAll('.otherDays');
 const otherDaysHeats = document.querySelectorAll('.bigger');
 
+
 // This objects represents the weather images src locations
 const weatherIcons = {
   sun: './assets/Sun.svg',
@@ -31,6 +32,7 @@ function ShowLocation() {
       convertLocation(latitude, longitude);
       // get the weather details and display with latitude, longitude
       getWeather(latitude, longitude);
+      getForecast(latitude, longitude);
     },
     function (error) {
         window.alert("Error occurred: " + error);
@@ -42,8 +44,8 @@ function ShowLocation() {
 }
 
 function convertLocation(lat, lon) {
-  const key = config.MY_API_KEY;
-  const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${key}`
+  const google_api_key = config.MY_API_KEY;
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${google_api_key}`
   fetch(url)
     .then((response) => response.json())
     .then((location) => {
@@ -95,7 +97,6 @@ function getWeather(lat, lon) {
         if(index !== 0 && index < 5)
           otherMax.push(Math.round(temp));
       })
-      console.log(data)
 
      //Display the data in dom
       currHeat.innerText = currentHeat + "°";
@@ -107,6 +108,34 @@ function getWeather(lat, lon) {
       })
     })
     .catch(err => console.log(err));
+}
+
+function getForecast(lat, lon) {
+  const weather_api_key = config.weather_key;
+  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${weather_api_key}`)
+    .then(res => res.json())
+    .then(data => setImg(data.weather[0].main))
+    .catch(err => console.log(err))
+}
+
+function setImg(weatherDescription){
+  switch(weatherDescription){
+    case 'Clear':
+      currImg.src = weatherIcons.cloud;
+      break;
+    case 'Sunny':
+      currImg.src = weatherIcons.sun;
+      break;
+    case 'Rain':
+      currImg.src = weatherIcons.rain;
+      break;
+    case 'Snow':
+      currImg.src = weatherIcons.snow;
+      break;
+    case 'Thunder':
+      currImg.src = weatherIcons.thunder;
+      break;
+  };
 }
 
 ShowLocation();
