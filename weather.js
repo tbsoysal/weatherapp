@@ -79,8 +79,9 @@ function ShowDates() {
   otherDays.forEach((day,index) => {
     let newDayIndex = dayIndex + (index+1);
     if(newDayIndex >= 7)
-      newDayIndex = 7 - newDayIndex;
+      newDayIndex = newDayIndex - 7;
     day.innerText = dayNames[newDayIndex];
+    console.log(newDayIndex);
   });
 
 }
