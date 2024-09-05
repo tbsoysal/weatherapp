@@ -14,7 +14,7 @@ body {
   background: linear-gradient(180deg, rgb(25, 34, 63) 0%, rgb(9, 9, 121) 15%, rgb(147, 66, 171) 100%) no-repeat;
   text-align: center;
   display: flex;
-  justify-conten: center;
+  justify-content: center;
   align-items: center;
 }
 
@@ -25,6 +25,7 @@ body {
 }
 .image-container img {
   width: 100%;
+  max-width: 450px;
 }
 
 h1 {
@@ -43,6 +44,7 @@ h1 .highlight {
 .startBtn {
   display: block;
   width: 70%;
+  max-width: 450px;
   background-color: #DDB130;
   padding: 10px;
   margin-inline: auto;

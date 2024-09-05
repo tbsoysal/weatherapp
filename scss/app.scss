@@ -61,6 +61,8 @@ main {
   background: linear-gradient(15deg, rgba(157,82,172,1) 0%, rgba(157,82,172,1) 15%, rgba(62,45,143,1) 100%);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  max-width: 450px;
+  margin-inline: auto;
 
   .today {
     display: flex;

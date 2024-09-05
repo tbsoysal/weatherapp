@@ -16,7 +16,7 @@ body {
   background: linear-gradient(180deg, rgba(25,34,63,1) 0%, rgba(9,9,121,1) 15%, rgba(147,66,171,1) 100%) no-repeat;
   text-align: center;
   display: flex;
-  justify-conten: center;
+  justify-content: center;
   align-items: center;
 }
 
@@ -27,6 +27,7 @@ body {
 
   img {
     width: 100%;
+    max-width: 450px;
   }
 }
 
@@ -47,6 +48,7 @@ h1 {
 .startBtn {
   display: block;
   width: 70%;
+  max-width: 450px;
   background-color: #DDB130;
   padding: 10px;
   margin-inline: auto;

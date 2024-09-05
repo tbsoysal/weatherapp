@@ -56,6 +56,8 @@ main .currentWeather .currentDetails .container {
   background: linear-gradient(15deg, rgb(157, 82, 172) 0%, rgb(157, 82, 172) 15%, rgb(62, 45, 143) 100%);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  max-width: 450px;
+  margin-inline: auto;
 }
 .forcast-section .today {
   display: flex;
