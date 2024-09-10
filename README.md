@@ -1,4 +1,5 @@
 # weatherapp
+I have builded a weather application that fetches data from a free weather API. Display the current weather and a 4-day forecast.
 # live link
 https://eliberso.shop/
 
